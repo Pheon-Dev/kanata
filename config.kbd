@@ -52,7 +52,13 @@
 
 (defalias
   alp (multi a b c d e f g h i j k l m n o p q r s t u v w x y z)
-  ls (macro l s spc min a l ret)
+  ls (macro l ret)
+  fzf (macro f spc min e ret)
+  rg (macro f spc min g ret)
+  lg (macro l g ret)
+  lf (macro l f ret)
+  nv (macro v ret)
+  zz (macro z z ret)
 )
 
 (deflayer qwerty
@@ -89,7 +95,7 @@
 
 (deflayer misc
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    ins  @{   @}    [   ]    _    _    _
+  _    _    _    _    _    _    ins  @{   @}   _    _    _    _    _
   _    _    _    _    C-u  _    C-bspc bspc esc ret _    _    _
   _    C-z  C-x  C-c  C-v  _    _    del  _    _    _    _
   _    _    _              _              _    _    _
@@ -97,9 +103,9 @@
 
 (deflayer chords
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    @csc _    @ls  _    _    _
-  _    @alp _    _    C-u  _    C-d  _    S-;  _    C-s  _    _
-  _    _    _    @csc @csv _    C-b  _    _    @csv _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    @rg  _    @fzf @lg  _    @nv  @lf  @ls  C-s  _    _
+  _    @zz  _    @csc @csv _    C-b  _    _    @csv _    _
   _    _    _              _              _    _    _
 )
 
