@@ -13,28 +13,28 @@
   num (layer-toggle numbers)
   chr (layer-toggle chords)
   arr (layer-toggle arrows)
-  msc (layer-toggle misc)
+  sup (layer-toggle super)
   lay (layer-toggle layers)
-  mse (layer-toggle mouse)
+  fse (layer-toggle fouse)
 
-  ;; change the base layer between qwerty and dvorak
-  ;; dvk (layer-switch dvorak)
+  ;; change the base layer
   qwr (layer-switch qwerty)
 
-  ;; tap-hold keys with letters for tap and layer change for hold
-  anm (tap-hold-release 300 300 a @num)
-  oar (tap-hold-release 300 300 o @arr)
-  ech (tap-hold-release 300 300 e @chr)
-  umc (tap-hold-release 300 300 s @msc)
-  grl (tap-hold-release 300 300 grv @lay)
-  .ms (tap-hold-release 300 300 . @mse)
+  ;; tap-hold keys with letters for tap and layer change for hold 
+  anm (tap-hold-release 200 200 a @num)
+  dir (tap-hold-release 200 200 d @arr)
+  ech (tap-hold-release 200 200 e @chr)
+  spr (tap-hold-release 200 200 s @sup)
+  grl (tap-hold-release 200 200 grv @lay)
+  fms (tap-hold-release 200 200 f @fse)
 
   ;; tap for capslk, hold for lctl
-  cap (tap-hold-release 300 300 caps lctl)
+  cap (tap-hold-release 200 200 caps lctl)
 
   ;; chords
   csv C-S-v
   csc C-S-c
+  special M-s
   ;; ext C-spc-esc
 )
 
@@ -64,21 +64,13 @@
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    @ech r    t    y    u    i    o    p    [    ]    \
-  @cap @anm @umc d    f    g    h    j    k    l    ;    '    ret
+  @cap @anm @spr @dir @fms g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
-(deflayer dvorak
-  @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
-  tab  '    ,    @.ms p    y    f    g    c    r    l    /    =    \
-  @cap @anm @oar @ech @umc i    d    h    t    n    s    -    ret
-  lsft ;    q    j    k    x    b    m    w    v    z    rsft
-  lctl lmet lalt           spc            @ral rmet rctl
-)
-
 (deflayer layers
-  _    @qwr _    lrld _    _    _    _    _    _    _    _    _    _
+  _    @qwr _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
@@ -87,33 +79,33 @@
 
 (deflayer numbers
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    7    8    9    0    _    _    _
-  _    _    _    _    _    _    3    4    5    6    min  +    _
-  _    _    _    _    _    _    0    1    2    _    /    _
+  _    _    _    _    _    _    _    bspc 7    8    9    S-8  _    _
+  _    _    _    _    _    _    3    4    5    6    min  =    _
+  _    _    _    _    _    0    1    2    S-min +    /    _
   _    _    _              _              _    _    _
 )
 
-(deflayer misc
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    ins  @{   @}   _    _    _    _    _
-  _    _    _    _    C-u  _    C-bspc bspc esc ret _    _    _
-  _    C-z  C-x  C-c  C-v  _    _    del  _    _    _    _
+(deflayer super
+  _    M-1  M-2  M-3  M-3  M-4  M-5  M-6  M-7  M-8  M-9  _    _    _
+  _    M-S-1 M-S-2 M-S-3 M-S-3 M-S-4 M-S-5 M-S-6 M-S-7 M-S-8 M-S-9 _    _    _
+  _    M-S-s _    M-s  M-tab M-g  M-h  M-j  M-k  M-l  _    _    M-ret
+  _    _    M-x  M-c  M-m  M-S-tab _    M-ret M-, M-. _    _
   _    _    _              _              _    _    _
 )
 
 (deflayer chords
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    @rg  _    @fzf @lg  _    @nv  @lf  @ls  C-s  _    _
-  _    @zz  _    @csc @csv _    C-b  _    _    @csv _    _
+  _    _    @rg  _    @fzf @lg  _    @nv  @lf  @ls  C-s  _    ret
+  _    @zz  _    @csc @csv _    C-b  _    ret  _    _    _
   _    _    _              _              _    _    _
 )
 
 (deflayer arrows
   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
-  _    _    _    _    _    _    C-S-tab pgup up pgdn C-tab _  _    _
-  _    _    _    _    _    _    home left down rght end  _    _
-  _    _    _    _    _    _    _    _    C-w  _    _    _
+  _    S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  S-9  S-0  _    _    _
+  _    _    _    _    C-tab _   left down up   rght _    _    ret
+  _    _    _    _    _    C-S-tab _    ret  pgup pgdn _    _
   _    _    _              _              _    _    _
 )
 
@@ -124,11 +116,11 @@
   mwr (mwheel-right 50 120)
 )
 
-(deflayer mouse
+(deflayer fouse
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @mwu bck  _    fwd  _    _    _    _    _    _    _    _    _
-  _    @mwd mlft _    mrgt mmid _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    bck  _    _    _
+  _    _    _    _    _    _    mlft @mwd @mwu mrgt _    _    _
+  _    _    _    _    _    _    fwd  mmid _    _    _    _
   _    _    _              _              _    _    _
 )
 
