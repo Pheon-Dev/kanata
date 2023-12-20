@@ -97,8 +97,8 @@
 (deflayer chords
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    C-u  _    _    _    _    _    _
-  _    _    @rg  C-d  @fzf @lg  C-h  @nv  @ls  C-l  @lf  _    ret
-  _    @zz  _    @csc @csv _    _    @net ret  _    _    _
+  _    @rg  @fzf C-d  C-f  @lg  C-h  @nv  @ls  C-l  @lf  _    ret
+  _    @zz  _    @csc @csv C-b  @net ret  _    _    _    _
   _    _    _              _              _    _    _
 )
 
