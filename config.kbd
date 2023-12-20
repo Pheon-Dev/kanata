@@ -59,6 +59,7 @@
   lf (macro l f ret)
   nv (macro v ret)
   zz (macro z z ret)
+  net (macro w w ret)
 )
 
 (deflayer qwerty
@@ -95,9 +96,9 @@
 
 (deflayer chords
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    @rg  _    @fzf @lg  _    @nv  @lf  @ls  C-s  _    ret
-  _    @zz  _    @csc @csv _    C-b  _    ret  _    _    _
+  _    _    _    _    _    _    _    C-u  _    _    _    _    _    _
+  _    _    @rg  C-d  @fzf @lg  C-h  @nv  @ls  C-l  @lf  _    ret
+  _    @zz  _    @csc @csv _    _    @net ret  _    _    _
   _    _    _              _              _    _    _
 )
 
