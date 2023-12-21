@@ -11,8 +11,8 @@
 (defalias
   ;; toggle layer aliases
   num (layer-toggle numbers)
-  chr (layer-toggle chords)
-  arr (layer-toggle arrows)
+  eco (layer-toggle echords)
+  drn (layer-toggle directions)
   sup (layer-toggle super)
   lay (layer-toggle layers)
   war (layer-toggle warp)
@@ -21,21 +21,19 @@
   qwr (layer-switch qwerty)
 
   ;; tap-hold keys with letters for tap and layer change for hold 
-  anm (tap-hold-release 200 200 a @num)
-  dir (tap-hold-release 200 200 d @arr)
-  ech (tap-hold-release 200 200 e @chr)
-  spr (tap-hold-release 200 200 s @sup)
   grl (tap-hold-release 200 200 grv @lay)
+  anm (tap-hold-release 200 200 a @num)
+  dir (tap-hold-release 200 200 d @drn)
+  ech (tap-hold-release 200 200 e @eco)
+  spr (tap-hold-release 200 200 s @sup)
   wrp (tap-hold-release 200 200 w @war)
 
   ;; tap for capslk, hold for lctl
   cap (tap-hold-release 200 200 caps lctl)
 
-  ;; chords
+  ;; echords
   csv C-S-v
   csc C-S-c
-  special M-s
-  ;; ext C-spc-esc
 )
 
 (deflocalkeys-linux
@@ -47,6 +45,24 @@
   { S-[
   } S-]
   : S-;
+  s1 M-1
+  s2 M-2
+  s3 M-3
+  s4 M-4
+  s5 M-5
+  s6 M-6
+  s7 M-7
+  s8 M-8
+  s9 M-9
+  m1 M-S-1
+  m2 M-S-2
+  m3 M-S-3
+  m4 M-S-4
+  m5 M-S-5
+  m6 M-S-6
+  m7 M-S-7
+  m8 M-S-8
+  m9 M-S-9
   ral (tap-hold-release 200 200 sldr ralt)
 )
 
@@ -81,20 +97,41 @@
 (deflayer numbers
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    bspc 7    8    9    S-8  _    _
-  _    _    _    C-bspc _   _    3    4    5    6    min  =    _
+  _    _    bspc C-bspc _   _    3    4    5    6    min  =    _
   _    _    _    _    _    0    1    2    S-min +    /    _
   _    _    _              _              _    _    _
 )
 
+(defalias
+  s1 M-1
+  s2 M-2
+  s3 M-3
+  s4 M-4
+  s5 M-5
+  s6 M-6
+  s7 M-7
+  s8 M-8
+  s9 M-9
+  m1 M-S-1
+  m2 M-S-2
+  m3 M-S-3
+  m4 M-S-4
+  m5 M-S-5
+  m6 M-S-6
+  m7 M-S-7
+  m8 M-S-8
+  m9 M-S-9
+)
+
 (deflayer super
-  _    M-1  M-2  M-3  M-3  M-4  M-5  M-6  M-7  M-8  M-9  _    _    _
-  _    M-S-1 M-S-2 M-S-3 M-S-3 M-S-4 M-S-5 M-S-6 M-S-7 M-S-8 M-S-9 _    _    _
+  _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _
+  _    @m1  @m2  @m3  @m4  @m5  @m6  @m7  @m8  @m9  _    _    _
   _    M-S-s _    M-s  M-tab M-g  M-h  M-j  M-k  M-l  _    _    M-ret
   _    _    M-q  M-c  M-m  M-S-tab _    M-ret M-, M-. _    _
   _    _    _              _              _    _    _
 )
 
-(deflayer chords
+(deflayer echords
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    C-w  _    C-r  C-t  _    C-u  _    _    _    _    _    _
   _    @rg  @fzf C-d  C-f  @lg  C-h  @nv  @ls  C-l  @lf  _    ret
@@ -102,9 +139,9 @@
   _    _    _              _              _    _    _
 )
 
-(deflayer arrows
+(deflayer directions
   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
-  _    S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  S-9  S-0  _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    C-tab _   left down up   rght _    _    ret
   _    _    _    _    _    C-S-tab _    ret  pgup pgdn _    _
   _    _    _              _              _    _    _
