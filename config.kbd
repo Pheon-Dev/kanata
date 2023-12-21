@@ -12,6 +12,7 @@
   ;; toggle layer aliases
   num (layer-toggle numbers)
   eco (layer-toggle echords)
+  fig (layer-toggle figures)
   drn (layer-toggle directions)
   sup (layer-toggle super)
   lay (layer-toggle layers)
@@ -25,45 +26,16 @@
   anm (tap-hold-release 200 200 a @num)
   dir (tap-hold-release 200 200 d @drn)
   ech (tap-hold-release 200 200 e @eco)
+  fgr (tap-hold-release 200 200 f @fig)
   spr (tap-hold-release 200 200 s @sup)
   wrp (tap-hold-release 200 200 w @war)
 
   ;; tap for capslk, hold for lctl
   cap (tap-hold-release 200 200 caps lctl)
-
-  ;; echords
-  csv C-S-v
-  csc C-S-c
 )
 
 (deflocalkeys-linux
   pho 445
-)
-
-(defalias
-  ;; shifted keys
-  { S-[
-  } S-]
-  : S-;
-  s1 M-1
-  s2 M-2
-  s3 M-3
-  s4 M-4
-  s5 M-5
-  s6 M-6
-  s7 M-7
-  s8 M-8
-  s9 M-9
-  m1 M-S-1
-  m2 M-S-2
-  m3 M-S-3
-  m4 M-S-4
-  m5 M-S-5
-  m6 M-S-6
-  m7 M-S-7
-  m8 M-S-8
-  m9 M-S-9
-  ral (tap-hold-release 200 200 sldr ralt)
 )
 
 (defalias
@@ -81,7 +53,7 @@
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    @wrp @ech r    t    y    u    i    o    p    [    ]    \
-  @cap @anm @spr @dir f    g    h    j    k    l    ;    '    ret
+  @cap @anm @spr @dir @fgr g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
@@ -124,10 +96,46 @@
 )
 
 (deflayer super
-  _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _
-  _    @m1  @m2  @m3  @m4  @m5  @m6  @m7  @m8  @m9  _    _    _
+  _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    M-S-s _    M-s  M-tab M-g  M-h  M-j  M-k  M-l  _    _    M-ret
   _    _    M-q  M-c  M-m  M-S-tab _    M-ret M-, M-. _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer meta
+  _    @m1  @m2  @m3  @m4  @m5  @m6  @m7  @m8  @m9  _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    M-S-s _    M-s  M-tab M-g  M-h  M-j  M-k  M-l  _    _    M-ret
+  _    _    M-q  M-c  M-m  M-S-tab _    M-ret M-, M-. _    _
+  _    _    _              _              _    _    _
+)
+
+(defalias
+  y1 S-1
+  y2 S-2
+  y3 S-3
+  y4 S-4
+  y5 S-5
+  y6 S-6
+  y7 S-7
+  y8 S-8
+  y9 S-9
+  y0 S-0
+  y' S-'
+  { S-[
+  } S-]
+  : S-;
+  csv C-S-v
+  csc C-S-c
+  ral (tap-hold-release 200 200 sldr ralt)
+)
+
+(deflayer figures
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    @y7  @y8  @y9  @y0  @{   @}
+  _    _    _    _    _    _    @y3  @y4  @y5  @y6  @:   @y'  _
+  _    _    _    _    _    _    @y1  @y2  _    _    _    _
   _    _    _              _              _    _    _
 )
 
