@@ -93,21 +93,27 @@
   m7 M-S-7
   m8 M-S-8
   m9 M-S-9
+  me M-e
+  mrt M-ret
+  mtb M-tab
+  msp M-s
+  mas M-S-s
+  mst M-S-tab
 )
 
 (deflayer super
   _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    M-S-s _    M-s  M-tab M-g  M-h  M-j  M-k  M-l  _    _    M-ret
-  _    _    M-q  M-c  M-m  M-S-tab _    M-ret M-, M-. _    _
+  _    @mas _    @msp @mtb M-g  M-h  M-j  M-k  M-l  _    _    @mrt
+  _    _    M-q  M-c  M-m  @mst _    @mrt M-,  M-.  _    _
   _    _    _              _              _    _    _
 )
 
 (deflayer meta
   _    @m1  @m2  @m3  @m4  @m5  @m6  @m7  @m8  @m9  _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    M-S-s _    M-s  M-tab M-g  M-h  M-j  M-k  M-l  _    _    M-ret
-  _    _    M-q  M-c  M-m  M-S-tab _    M-ret M-, M-. _    _
+  _    _    _    @me  _    _    _    _    _    _    _    _    _    _
+  _    @mas @msp _    @mtb M-g  M-h  M-j  M-k  M-l  _    _    @mrt
+  _    _    M-q  M-c  M-m  @mst _    _    M-,  M-.  _    _
   _    _    _              _              _    _    _
 )
 
@@ -128,12 +134,16 @@
   : S-;
   csv C-S-v
   csc C-S-c
+  csb C-S-tab
+  csf C-tab
+  asp A-S-tab
+  asn A-tab
   ral (tap-hold-release 200 200 sldr ralt)
 )
 
 (deflayer figures
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    @y7  @y8  @y9  @y0  @{   @}
+  _    _    _    _    _    _    _    @y7  @y8  @y9  @y0  @{   @}   _
   _    _    _    _    _    _    @y3  @y4  @y5  @y6  @:   @y'  _
   _    _    _    _    _    _    @y1  @y2  _    _    _    _
   _    _    _              _              _    _    _
@@ -148,10 +158,10 @@
 )
 
 (deflayer directions
-  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    C-tab _   left down up   rght _    _    ret
-  _    _    _    _    _    C-S-tab _    ret  pgup pgdn _    _
+  _    A-1  A-2  A-3  A-4  A-5  A-6  A-7  A-8  A-9  _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    @asp _    _    _
+  _    _    _    _    @csf _   left down up   rght _    _    ret
+  _    _    _    _    _    @csb @asn ret  pgup pgdn _    _
   _    _    _              _              _    _    _
 )
 
@@ -168,15 +178,15 @@
   mal (movemouse-accel-left 1 1000 1 2)
   mad (movemouse-accel-down 1 1000 1 5)
   mar (movemouse-accel-right 1 1000 1 5)
-  msp (movemouse-speed 50)
+  spd (movemouse-speed 50)
   sm (setmouse 32228 32228)
 )
 
 (deflayer warp
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    @mau _    _    @msp _    _    _
+  _    _    _    _    _    _    _    @mau mmid _    @spd _    _    _
   _    _    @sm  @mad @mar mlft @mwl @mwd @mwu @mwr mrgt _    _
-  _    _    _    _    _    @mal _    mmid bck  fwd  _    _
+  _    _    _    _    _    @mal _    ret  bck  fwd  _    _
   _    _    _              _              _    _    _
 )
 
