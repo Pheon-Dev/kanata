@@ -11,6 +11,7 @@
 (defalias
   ;; toggle layer aliases
   num (layer-toggle numbers)
+  qck (layer-toggle quick)
   eco (layer-toggle echords)
   fig (layer-toggle figures)
   drn (layer-toggle directions)
@@ -22,16 +23,17 @@
   qwr (layer-switch qwerty)
 
   ;; tap-hold keys with letters for tap and layer change for hold 
-  grl (tap-hold-release 200 200 grv @lay)
-  anm (tap-hold-release 200 200 a @num)
-  dir (tap-hold-release 200 200 d @drn)
-  ech (tap-hold-release 200 200 e @eco)
-  fgr (tap-hold-release 200 200 f @fig)
-  spr (tap-hold-release 200 200 s @sup)
-  wrp (tap-hold-release 200 200 w @war)
+  grl (tap-hold-release 280 280 grv @lay)
+  anm (tap-hold-release 280 280 a @num)
+  que (tap-hold-release 280 280 q @qck)
+  dir (tap-hold-release 280 280 d @drn)
+  ech (tap-hold-release 280 280 e @eco)
+  fgr (tap-hold-release 280 280 f @fig)
+  spr (tap-hold-release 280 280 s @sup)
+  wrp (tap-hold-release 280 280 w @war)
 
   ;; tap for capslk, hold for lctl
-  cap (tap-hold-release 200 200 caps lctl)
+  cap (tap-hold-release 280 280 caps lctl)
 )
 
 (deflocalkeys-linux
@@ -39,37 +41,65 @@
 )
 
 (defalias
+  0 0
+  1 1
+  2 2
+  3 3
+  4 4
+  5 5
+  6 6
+  7 7
+  8 8
+  9 9
+  ; ;
+  : S-;
+  - -
   alp (multi a b c d e f g h i j k l m n o p q r s t u v w x y z)
+  l80 (macro h t t p @: / / 100 l o c a l h o s t @: @8 @0 @8 @0)
+  l30 (macro h t t p @: / / 100 l o c a l h o s t @: @3 @0 @0 @0)
+  l31 (macro h t t p @: / / 100 l o c a l h o s t @: @3 @0 @0 @1)
   ls (macro l ret)
+  con (macro p s c a l e @- c o n n e c t spc m a r v e l @- c l o u d spc d e v ret)
+  exp (macro p a s s @- e x p o r t ret)
   fzf (macro f spc min e ret)
   rg (macro f spc min g ret)
   lg (macro l g ret)
   lf (macro l f ret)
   nv (macro v ret)
   zz (macro z z ret)
+  yd (macro y d ret)
   net (macro w w ret)
+  btp (macro b t o p ret)
 )
 
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    @wrp @ech r    t    y    u    i    o    p    [    ]    \
+  tab  @que @wrp @ech r    t    y    u    i    o    p    [    ]    \
   @cap @anm @spr @dir @fgr g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
 (deflayer layers
-  _    @qwr _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    @qwr lrld _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    lrpv lrnx _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer quick
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    @yd  _    @nv  _    _    _    _    _
+  _    _    @rg  _    @fzf @lg  _    _    _    _    _    @lf  ret
+  _    @zz  @exp @con _    @btp @net _    _    _    _    _
   _    _    _              _              _    _    _
 )
 
 (deflayer numbers
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    bspc 7    8    9    S-8  _    _
-  _    _    bspc C-bspc _   _    3    4    5    6    min  =    _
+  _    _    bspc C-bspc _   _    3    4    5    6    min  =    ret
   _    _    _    _    _    0    1    2    S-min +    /    _
   _    _    _              _              _    _    _
 )
@@ -128,12 +158,30 @@
   y8 S-8
   y9 S-9
   y0 S-0
+  a1 A-1
+  a2 A-2
+  a3 A-3
+  a4 A-4
+  a5 A-5
+  a6 A-6
+  a7 A-7
+  a8 A-8
+  a9 A-9
+  a0 A-0
   y' S-'
   { S-[
   } S-]
-  : S-;
+  [ [
+  ] ]
   csv C-S-v
   csc C-S-c
+  csi C-S-i
+  csm C-S-m
+  csr C-S-r
+  csj C-S-j
+  csl C-S-l
+  csh C-S-h
+  csk C-S-k
   csb C-S-tab
   csf C-tab
   asp A-S-tab
@@ -145,23 +193,31 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    @y7  @y8  @y9  @y0  @{   @}   _
   _    _    _    _    _    _    @y3  @y4  @y5  @y6  @:   @y'  _
-  _    _    _    _    _    _    @y1  @y2  _    _    _    _
+  _    _    _    _    _    _    @y1  @y2  @[   @]   _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer calt
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    @a7  @a8  @a9  _    _    _    _
+  _    _    _    _    @asn _    @a3  @a4  @a5  @a6  _    _    _
+  _    _    _    _    _    @asp @a1  @a2  _    _    _    _
   _    _    _              _              _    _    _
 )
 
 (deflayer echords
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    C-w  _    C-r  C-t  _    C-u  _    _    _    _    _    _
-  _    @rg  @fzf C-d  C-f  @lg  C-h  @nv  @ls  C-l  @lf  _    ret
-  _    @zz  _    @csc @csv C-b  @net ret  _    _    _    _
+  _    C-q  C-w  _    C-r  C-t  C-y  C-u  C-i  C-o  C-p  _    _    _
+  _    C-a  C-s  C-d  C-f  C-g  C-h  C-j  C-k  C-l  _    _    ret
+  _    C-z  C-x  C-c  C-v  C-b  C-n  ret  _    _    _    _
   _    _    _              _              _    _    _
 )
 
 (deflayer directions
   _    A-1  A-2  A-3  A-4  A-5  A-6  A-7  A-8  A-9  _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    @asp _    _    _
+  _    _    _    @csr _    _    _    _    @csi _    @asp _    _    _
   _    _    _    _    @csf _   left down up   rght _    _    ret
-  _    _    _    _    _    @csb @asn ret  pgup pgdn _    _
+  _    _    _    @csc @csv @csb @asn ret  pgup pgdn _    _
   _    _    _              _              _    _    _
 )
 
