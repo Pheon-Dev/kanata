@@ -29,6 +29,6 @@
    ls -l /dev/uinput
 ```
 ```bash
-   crw-rw---- 1 root uinput 10, 223 Nov 11 15:35 /dev/uinput
+   crw-rw---- 1 root uinput /dev/uinput
 ```
 
