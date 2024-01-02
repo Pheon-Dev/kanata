@@ -83,10 +83,10 @@
   m9 M-S-9
   me M-e
   mrt M-ret
-  mtb M-tab
   msp M-s
   mas M-S-s
-  mst M-S-tab
+  mtf M-tab
+  mtb M-S-tab
   y1 S-1
   y2 S-2
   y3 S-3
@@ -121,8 +121,8 @@
   csl C-S-l
   csh C-S-h
   csk C-S-k
-  csb C-S-tab
-  csf C-tab
+  csp C-S-tab
+  csn C-tab
   asp A-S-tab
   asn A-tab
   ral (tap-hold-release 200 200 sldr ralt)
@@ -166,17 +166,9 @@
 
 (deflayer super
   _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    @asp @csb @csf _
-  _    @mas _    @msp @mtb M-g  M-h  M-j  M-k  M-l  _    _    @mrt
-  _    _    _    _    M-m  @mst @asn @mrt M-,  M-.  _    _
-  _    _    _              _              _    _    _
-)
-
-(deflayer meta
-  _    @m1  @m2  @m3  @m4  @m5  @m6  @m7  @m8  @m9  _    _    _    _
-  _    _    _    @me  _    _    _    _    _    _    _    _    _    _
-  _    @mas @msp _    @mtb M-g  M-h  M-j  M-k  M-l  _    _    @mrt
-  _    _    M-q  M-c  M-m  @mst _    _    M-,  M-.  _    _
+  _    _    _    @msp _    _    _    _    _    _    @asp _    _    _
+  _    @mas _    @msp @mtf M-g  M-h  M-j  M-k  M-l  _    _    @mrt
+  _    _    _    _    M-m  @mtb @asn @mrt M-,  M-.  _    _
   _    _    _              _              _    _    _
 )
 
@@ -185,14 +177,6 @@
   _    _    _    _    _    _    _    @y7  @y8  @y9  @y0  @{   @}   _
   _    _    _    _    _    _    @y3  @y4  @y5  @y6  @:   @y'  _
   _    _    _    _    _    _    @y1  @y2  @[   @]   _    _
-  _    _    _              _              _    _    _
-)
-
-(deflayer calt
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    @a7  @a8  @a9  _    _    _    _
-  _    _    _    _    @asn _    @a3  @a4  @a5  @a6  _    _    _
-  _    _    _    _    _    @asp @a1  @a2  _    _    _    _
   _    _    _              _              _    _    _
 )
 
@@ -207,8 +191,8 @@
 (deflayer directions
   _    A-1  A-2  A-3  A-4  A-5  A-6  A-7  A-8  A-9  _    _    _    _
   _    _    _    @csr _    _    _    _    @csi _    _    _    _    _
-  _    _    _    _    @csf _   left down up   rght _    _    ret
-  _    _    _    @csc @csv @csb -   ret  pgup pgdn _    _
+  _    _    _    _    @csn _   left down up   rght _    _    ret
+  _    _    _    @csc @csv @csp -   ret  pgup pgdn _    _
   _    _    _              _              _    _    _
 )
 
@@ -217,23 +201,24 @@
   mwd (mwheel-down 50 120)
   mwl (mwheel-left 50 120)
   mwr (mwheel-right 50 120)
-  msu (movemouse-up 1 1)
-  msl (movemouse-left 1 1)
-  msd (movemouse-down 1 1)
-  msr (movemouse-right 1 1)
-  mau (movemouse-accel-up 1 10000 1 5)
-  mal (movemouse-accel-left 1 10000 1 5)
-  mad (movemouse-accel-down 1 10000 1 5)
-  mar (movemouse-accel-right 1 10000 1 5)
-  spd (movemouse-speed 50)
+  mau (movemouse-up 1 1)
+  mal (movemouse-left 1 1)
+  mad (movemouse-down 1 1)
+  mar (movemouse-right 1 1)
+  msu (movemouse-accel-up 1 1000 1 5)
+  msl (movemouse-accel-left 1 1000 1 5)
+  msd (movemouse-accel-down 1 1000 1 5)
+  msr (movemouse-accel-right 1 1000 1 5)
   sm (setmouse 32228 32228)
+  fst (movemouse-speed 50)
+  slw (movemouse-speed 1)
 )
 
 (deflayer warp
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    @mau mmid _    @spd _    _    _
-  _    _    @sm  @mad @mar mlft @mwl @mwd @mwu @mwr mrgt _    _
-  _    _    _    _    _    @mal _    ret  bck  fwd  _    _
+  _    _    _    _    _    _    _    @mwu mmid _    bck  @slw @fst _
+  _    _    @sm  @mwd @mwr mlft @mal @mad @mau @mar mrgt _    _
+  _    _    _    _    _    @mwl fwd  ret  _    _    _    _
   _    _    _              _              _    _    _
 )
 
