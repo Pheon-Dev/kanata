@@ -34,13 +34,6 @@
 
   ;; tap for capslk, hold for lctl
   cap (tap-hold-release 280 280 caps lctl)
-)
-
-(deflocalkeys-linux
-  pho 445
-)
-
-(defalias
   0 0
   1 1
   2 2
@@ -70,41 +63,6 @@
   yd (macro y d ret)
   net (macro w w ret)
   btp (macro b t o p ret)
-)
-
-(deflayer qwerty
-  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  @que @wrp @ech r    t    y    u    i    o    p    [    ]    \
-  @cap @anm @spr @dir @fgr g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
-)
-
-(deflayer layers
-  _    @qwr lrld _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    lrpv lrnx _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
-)
-
-(deflayer quick
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    @yd  _    @nv  _    _    _    _    _
-  _    _    @rg  _    @fzf @lg  _    _    _    _    _    @lf  ret
-  _    @zz  @exp @con _    @btp @net _    _    _    _    _
-  _    _    _              _              _    _    _
-)
-
-(deflayer numbers
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    bspc 7    8    9    S-8  _    _
-  _    _    bspc C-bspc _   _    3    4    5    6    min  =    ret
-  _    _    _    _    _    0    1    2    S-min +    /    _
-  _    _    _              _              _    _    _
-)
-
-(defalias
   s1 M-1
   s2 M-2
   s3 M-3
@@ -129,25 +87,6 @@
   msp M-s
   mas M-S-s
   mst M-S-tab
-)
-
-(deflayer super
-  _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @mas _    @msp @mtb M-g  M-h  M-j  M-k  M-l  _    _    @mrt
-  _    _    M-q  M-c  M-m  @mst _    @mrt M-,  M-.  _    _
-  _    _    _              _              _    _    _
-)
-
-(deflayer meta
-  _    @m1  @m2  @m3  @m4  @m5  @m6  @m7  @m8  @m9  _    _    _    _
-  _    _    _    @me  _    _    _    _    _    _    _    _    _    _
-  _    @mas @msp _    @mtb M-g  M-h  M-j  M-k  M-l  _    _    @mrt
-  _    _    M-q  M-c  M-m  @mst _    _    M-,  M-.  _    _
-  _    _    _              _              _    _    _
-)
-
-(defalias
   y1 S-1
   y2 S-2
   y3 S-3
@@ -189,6 +128,58 @@
   ral (tap-hold-release 200 200 sldr ralt)
 )
 
+(deflocalkeys-linux
+  pho 445
+)
+
+(deflayer qwerty
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  @que @wrp @ech r    t    y    u    i    o    p    [    ]    \
+  @cap @anm @spr @dir @fgr g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer layers
+  _    @qwr lrld _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    lrpv lrnx _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer quick
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    @yd  _    @nv  _    _    _    _    _
+  _    _    @rg  _    @fzf @lg  _    _    _    _    _    @lf  ret
+  _    @zz  @exp @con _    @btp @net _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer numbers
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    bspc 7    8    9    S-8  _    _
+  _    _    bspc C-bspc _   _    3    4    5    6    min  =    ret
+  _    _    _    _    _    0    1    2    S-min +    /    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer super
+  _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    @asp @csb @csf _
+  _    @mas _    @msp @mtb M-g  M-h  M-j  M-k  M-l  _    _    @mrt
+  _    _    _    _    M-m  @mst @asn @mrt M-,  M-.  _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer meta
+  _    @m1  @m2  @m3  @m4  @m5  @m6  @m7  @m8  @m9  _    _    _    _
+  _    _    _    @me  _    _    _    _    _    _    _    _    _    _
+  _    @mas @msp _    @mtb M-g  M-h  M-j  M-k  M-l  _    _    @mrt
+  _    _    M-q  M-c  M-m  @mst _    _    M-,  M-.  _    _
+  _    _    _              _              _    _    _
+)
+
 (deflayer figures
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    @y7  @y8  @y9  @y0  @{   @}   _
@@ -215,9 +206,9 @@
 
 (deflayer directions
   _    A-1  A-2  A-3  A-4  A-5  A-6  A-7  A-8  A-9  _    _    _    _
-  _    _    _    @csr _    _    _    _    @csi _    @asp _    _    _
+  _    _    _    @csr _    _    _    _    @csi _    _    _    _    _
   _    _    _    _    @csf _   left down up   rght _    _    ret
-  _    _    _    @csc @csv @csb @asn ret  pgup pgdn _    _
+  _    _    _    @csc @csv @csb -   ret  pgup pgdn _    _
   _    _    _              _              _    _    _
 )
 
