@@ -82,6 +82,7 @@
   m8 M-S-8
   m9 M-S-9
   me M-e
+  mw M-w
   mrt M-ret
   msp M-s
   mas M-S-s
@@ -166,7 +167,7 @@
 
 (deflayer super
   _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _    _
-  _    _    _    @msp _    _    _    _    _    _    @asp _    _    _
+  _    _    @mw  @msp _    _    _    _    _    _    @asp _    _    _
   _    @mas _    @msp @mtf M-g  M-h  M-j  M-k  M-l  _    _    @mrt
   _    _    _    _    M-m  @mtb @asn @mrt M-,  M-.  _    _
   _    _    _              _              _    _    _
