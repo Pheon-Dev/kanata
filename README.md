@@ -38,3 +38,33 @@ ls -l /dev/uinput
 crw-rw---- 1 root uinput /dev/uinput
 ```
 
+## Add this to: `~/.config/systemd/user/kanata.service`
+```
+[Unit]
+Description=Kanata keyboard remapper
+Documentation=https://github.com/jtroo/kanata
+
+[Service]
+Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
+Environment=DISPLAY=:0
+Environment=HOME=/home/pheon-dev
+Type=simple
+ExecStart=/home/pheon-dev/.cargo/bin/kanata --cfg /home/pheon-dev/.config/kanata/config.kbd
+Restart=no
+
+[Install]
+WantedBy=default.target
+
+```
+
+### Then run:
+```bash
+systemctl --user daemon-reload
+systemctl --user enable kanata.service
+systemctl --user start kanata.service
+```
+
+### Then check if the service is running:
+```bash
+systemctl --user status kanata.service
+```

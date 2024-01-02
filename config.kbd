@@ -22,7 +22,7 @@
   ;; change the base layer
   qwr (layer-switch qwerty)
 
-  ;; tap-hold keys with letters for tap and layer change for hold 
+  ;; tap-hold keys with letters for tap and layer change for hold
   grl (tap-hold-release 280 280 grv @lay)
   anm (tap-hold-release 280 280 a @num)
   que (tap-hold-release 280 280 q @qck)
