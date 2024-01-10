@@ -32,8 +32,10 @@
   spr (tap-hold-release 280 280 s @sup)
   wrp (tap-hold-release 280 280 w @war)
 
-  ;; tap for capslk, hold for lctl
+  ;; tap for a, hold for b
+  ;; c (tap-hold-release 280 280 a b)
   cap (tap-hold-release 280 280 caps lctl)
+  ,, (tap-hold-release 280 280 , C-,)
   0 0
   1 1
   2 2
@@ -83,6 +85,7 @@
   m9 M-S-9
   me M-e
   mw M-w
+  mq M-q
   mrt M-ret
   msp M-s
   mas M-S-s
@@ -137,7 +140,7 @@
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @ech r    t    y    u    i    o    p    [    ]    \
   @cap @anm @spr @dir @fgr g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lsft z    x    c    v    b    n    m    @,,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
@@ -167,7 +170,7 @@
 
 (deflayer super
   _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  _    _    _    _
-  _    _    @mw  @msp _    _    _    _    _    _    @asp _    _    _
+  _    @mq  @mw  @me  _    _    _    _    _    _    @asp _    _    _
   _    @mas _    @msp @mtf M-g  M-h  M-j  M-k  M-l  _    _    @mrt
   _    _    _    _    M-m  @mtb @asn @mrt M-,  M-.  _    _
   _    _    _              _              _    _    _
@@ -184,8 +187,8 @@
 (deflayer echords
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    C-q  C-w  _    C-r  C-t  C-y  C-u  C-i  C-o  C-p  _    _    _
-  _    C-a  C-s  C-d  C-f  C-g  C-h  C-j  C-k  C-l  _    _    ret
-  _    C-z  C-x  C-c  C-v  C-b  C-n  ret  _    _    _    _
+  _    C-a  C-s  C-d  C-f  C-g  C-h  C-j  C-k  C-l  C-e  _    ret
+  _    C-z  C-x  C-c  C-v  C-b  C-n  ret  C-,  _    _    _
   _    _    _              _              _    _    _
 )
 
