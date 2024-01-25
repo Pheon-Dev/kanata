@@ -12,7 +12,7 @@
   ;; toggle layer aliases
   num (layer-toggle numbers)
   vom (layer-toggle voom)
-  chg (layer-toggle change)
+  clt (layer-toggle change)
   qck (layer-toggle quick)
   eco (layer-toggle echords)
   sft (layer-toggle shiffft)
@@ -27,7 +27,7 @@
   ;; tap-hold keys with letters for tap and layer change for hold
   grl (tap-hold-release 280 280 grv @lay)
   anm (tap-hold-release 280 280 a @num)
-  chn (tap-hold-release 280 280 c @chg)
+  cal (tap-hold-release 280 280 c @clt)
   voo (tap-hold-release 280 280 v @vom)
   que (tap-hold-release 280 280 q @qck)
   dir (tap-hold-release 280 280 d @drn)
@@ -38,7 +38,8 @@
 
   ;; tap for a, hold for b
   ;; c (tap-hold-release 280 280 a b)
-  cap (tap-hold-release 280 280 caps lctl)
+  escape esc
+  esc (tap-hold-release 280 280 escape lctl)
   0 0
   1 1
   2 2
@@ -126,15 +127,15 @@
   ral (tap-hold-release 200 200 sldr ralt)
 )
 
-(deflochnkeys-linux
+(deflocalkeys-linux
   pho 445
 )
 
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @ech r    t    y    u    i    o    p    [    ]    \
-  @cap @anm @spr @dir @fft g    h    j    k    l    ;    '    ret
-  lsft z    x    @chn @voo b    n    m    ,      .    /    rsft
+  @esc @anm @spr @dir @fft g    h    j    k    l    ;    '    ret
+  lsft z    x    @cal @voo b    n    m    ,      .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
