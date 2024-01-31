@@ -38,8 +38,7 @@
 
   ;; tap for a, hold for b
   ;; c (tap-hold-release 280 280 a b)
-  escape esc
-  esc (tap-hold-release 280 280 escape lctl)
+  cap (tap-hold-release 280 280 caps lctl)
   0 0
   1 1
   2 2
@@ -88,9 +87,10 @@
   m9 M-S-9
   me M-S-min
   mw M-w
+  ms M-spc
   mq M-=
   mrt M-ret
-  msp M-min
+  msp M-s
   mas M-S-s
   mtf M-tab
   ;; mtb M-S-tab
@@ -121,8 +121,8 @@
   csk C-S-k
   csp C-S-tab
   csn C-tab
-  asp A-S-tab
-  asn A-tab
+  asf A-tab
+  asb A-S-tab
   mp M-p
   ral (tap-hold-release 200 200 sldr ralt)
 )
@@ -134,7 +134,7 @@
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @ech r    t    y    u    i    o    p    [    ]    \
-  @esc @anm @spr @dir @fft g    h    j    k    l    ;    '    ret
+  @cap @anm @spr @dir @fft g    h    j    k    l    ;    '    ret
   lsft z    x    @cal @voo b    n    m    ,      .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
@@ -158,8 +158,8 @@
 (deflayer voom
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    @m7  @m8  @m9  _    _    _
-  _    _    _    _    _    _    @m3  @m4  @m5  @m6  _    _    ret
-  _    _    _    _    _    _    @m1  @m2  _    _    _    _
+  _    _    _    _    @asf _    @m3  @m4  @m5  @m6  _    _    ret
+  _    _    _    _    _    @asb @m1  @m2  _    _    _    _
   _    _    _              _              _    _    _
 )
 
@@ -185,14 +185,14 @@
   _    @mq  @mw  @me  _    _    _    _    _    _    @mp _    _    _
   _    @mas _    @msp @mtf M-g  M-h  M-j  M-k  M-l  _    _    @mrt
   _    _    _    _    M-m  @mtb @net @mrt M-,  M-.  _    _
-  _    _    _              _              _    _    _
+  _    _    _              @ms            _    _    _
 )
 
 (deflayer shiffft
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    S-q  S-w  S-e  S-r  S-t  S-y  S-7  S-8  S-9  S-0  @{   @}   _
   _    S-a  S-s  S-d  _    S-g  S-h  S-4  S-5  S-l  @:   @S'   _
-  _    S-z  S-x  S-c  S-v  S-b  S-1  S-2  A-s  A-w  _    _
+  _    S-z  S-x  S-c  S-v  S-b  S-1  S-2  _    _    _    _
   _    _    _              _              _    _    _
 )
 
@@ -211,6 +211,15 @@
   _    _    _    @csc @csv @csp -   ret  pgup pgdn _    _
   _    _    _              _              _    _    _
 )
+
+(deflayer alterations
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    ret
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
 
 (defalias
   mwu (mwheel-up 50 120)
