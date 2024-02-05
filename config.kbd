@@ -19,9 +19,7 @@
   ;; toggle layer aliases
   num (layer-toggle numbers)
   vom (layer-toggle voom)
-  clt (layer-toggle change)
   qck (layer-toggle quick)
-  eco (layer-toggle echords)
   drn (layer-toggle directions)
   sup (layer-toggle super)
   lay (layer-toggle layers)
@@ -33,11 +31,9 @@
   ;; tap-hold keys with letters for tap and layer change for hold
   grl (tap-hold-release $ht $ht grv @lay)
   anm (tap-hold-release $ht $ht a @num)
-  cal (tap-hold-release $ht $ht c @clt)
   voo (tap-hold-release $ht $ht v @vom)
   que (tap-hold-release $ht $ht q @qck)
   dir (tap-hold-release $ht $ht d @drn)
-  ech (tap-hold-release $ht $ht e @eco)
   spr (tap-hold-release $ht $ht s @sup)
   wrp (tap-hold-release $ht $ht w @war)
 
@@ -45,7 +41,15 @@
   ;; c (tap-hold-release $ht $ht a b)
   ;; cap (tap-hold-release $ht $ht esc lctl)
   cap (tap-hold $tt $ht esc lctl)
-  spa (tap-hold $tt $ht spc  lsft)
+  spa (tap-hold $tt $ht spc lsft)
+  ctl (tap-hold $tt $ht e lctl)
+
+  ;; 1 tap : "," key
+  ;; 2 taps: A-s
+  ;; 3 taps: Escape
+  ;; 4 taps: Escape
+  sav (tap-dance 200 (, A-s esc esc))
+
   0 0
   1 1
   2 2
@@ -58,7 +62,23 @@
   9 9
   ; ;
   : S-;
+  $ S-4
   - -
+  cmd (tap-dance 200 (@; @:))
+
+  ;; exit lctl+spc+esc
+  ;; 1!@ (macro-release-cancel @1 500 bspc S-1 500 bspc S-2)
+  1s (macro-release-cancel @1 500 bspc S-1)
+  2s (macro-release-cancel @2 500 bspc S-2)
+  3s (macro-release-cancel @3 500 bspc S-3)
+  4s (macro-release-cancel @4 500 bspc S-4)
+  5s (macro-release-cancel @5 500 bspc S-5)
+  6s (macro-release-cancel @6 500 bspc S-6)
+  7s (macro-release-cancel @7 500 bspc S-7)
+  8s (macro-release-cancel @8 500 bspc S-8)
+  9s (macro-release-cancel @9 500 bspc S-9)
+  0s (macro-release-cancel @0 500 bspc S-0)
+
   alp (multi a b c d e f g h i j k l m n o p q r s t u v w x y z)
   l80 (macro h t t p @: / / 100 l o c a l h o s t @: @8 @0 @8 @0)
   l30 (macro h t t p @: / / 100 l o c a l h o s t @: @3 @0 @0 @0)
@@ -74,25 +94,35 @@
   yd (macro y d ret)
   net (macro w w ret)
   btp (macro b t o p ret)
-  s1 M-1
-  s2 M-2
-  s3 M-3
-  s4 M-4
-  s5 M-5
-  s6 M-6
-  s7 M-7
-  s8 M-8
-  s9 M-9
-  m1 M-S-1
-  m2 M-S-2
-  m3 M-S-3
-  m4 M-S-4
-  m5 M-S-5
-  m6 M-S-6
-  m7 M-S-7
-  m8 M-S-8
-  m9 M-S-9
-  me M-S-min
+  m1 M-1
+  m2 M-2
+  m3 M-3
+  m4 M-4
+  m5 M-5
+  m6 M-6
+  m7 M-7
+  m8 M-8
+  m9 M-9
+  s1 M-S-1
+  s2 M-S-2
+  s3 M-S-3
+  s4 M-S-4
+  s5 M-S-5
+  s6 M-S-6
+  s7 M-S-7
+  s8 M-S-8
+  s9 M-S-9
+  ms1 (tap-dance 200 (@m1 @s1))
+  ms2 (tap-dance 200 (@m2 @s2))
+  ms3 (tap-dance 200 (@m3 @s3))
+  ms4 (tap-dance 200 (@m4 @s4))
+  ms5 (tap-dance 200 (@m5 @s5))
+  ms6 (tap-dance 200 (@m6 @s6))
+  ms7 (tap-dance 200 (@m7 @s7))
+  ms8 (tap-dance 200 (@m8 @s8))
+  ms9 (tap-dance 200 (@m9 @s9))
+  ;; me M-S-min
+  me M-e
   mw M-w
   ms M-spc
   mq M-=
@@ -131,6 +161,10 @@
   asf A-tab
   asb A-S-tab
   mp M-p
+  del bspc
+  dlc C-bspc
+  min min
+  mns S-min
   ral (tap-hold-release 200 200 sldr ralt)
 )
 
@@ -140,9 +174,9 @@
 
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  @que @wrp @ech r    t    y    u    i    o    p    [    ]    \
-  @cap @anm @spr @dir f    g    h    j    k    l    ;    '    ret
-  lsft z    x    @cal @voo b    n    m    ,      .    /    rsft
+  tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
+  @cap @anm @spr @dir f    g    h    j    k    l    @cmd '    ret
+  lsft z    x    c    @voo b    n    m    @sav .    /    rsft
   lctl lmet lalt           @spa           ralt rmet rctl
 )
 
@@ -164,43 +198,26 @@
 
 (deflayer voom
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    @m7  @m8  @m9  _    _    _
-  _    _    _    _    @asf _    @m3  @m4  @m5  @m6  _    _    ret
-  _    _    _    _    _    @asb @m1  @m2  _    _    _    _
+  _    _    _    _    _    _    _    _    @ms7 @ms8 @ms9  _    _    _
+  _    _    _    _    @asf _    @ms3 @ms4 @ms5 @ms6  _    _    ret
+  _    _    _    _    _    @asb @ms1 @ms2  _    _    _    _
   _    _    _              _              _    _    _
 )
-
-(deflayer change
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    @s7  @s8  @s9  _    _    _
-  _    _    _    _    _    _    @s3  @s4  @s5  @s6  _    _    ret
-  _    _    _    _    _    _    @s1  @s2  _    _    _    _
-  _    _    _              _              _    _    _
-)
-
 
 (deflayer numbers
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    bspc 7    8    9    S-8  _    _
-  _    _    bspc C-bspc _   _    3    4    5    6    min  =    ret
-  _    _    _    _    _    0    1    2    S-min +    /    _
+  _    _    _    _    _    _    _    @del @7s  @8s  @9s  @8s  _    _
+  _    _    @del @dlc _    _    @3s  @4s  @5s  @6s  @min =    ret
+  _    _    _    _    _    @0s  @1s  @2s  @mns +    /    _
   _    _    _              _              _    _    _
 )
 
 (deflayer super
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @mq  @mw  @me  _    _    _    _    _    _    @mp _    _    _
+  _    @mq  @mw  @me  _    _    _    _    _    _    @mp  _    _    _
   _    @mas _    @msp @mtf M-g  M-h  M-j  M-k  M-l  _    _    @mrt
   _    _    _    _    M-m  @mtb @net @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
-)
-
-(deflayer echords
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    C-q  C-w  _    C-r  C-t  C-y  C-u  C-i  C-o  C-p  _    _    _
-  _    C-a  C-s  C-d  C-f  C-g  C-h  C-j  C-k  C-l  C-e  _    ret
-  _    C-z  C-x  C-c  C-v  C-b  C-n  ret  C-,  _    _    _
-  _    _    _              _              _    _    _
 )
 
 (deflayer directions
@@ -210,15 +227,6 @@
   _    _    _    @csc @csv @csp -   ret  pgup pgdn _    _
   _    _    _              _              _    _    _
 )
-
-(deflayer alterations
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    ret
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
-)
-
 
 (defalias
   mwu (mwheel-up 50 120)
@@ -240,9 +248,9 @@
 
 (deflayer warp
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    @mwu mmid _    bck  @slw @fst _
-  _    _    @sm  @mwd @mwr mlft @mal @mad @mau @mar mrgt _    _
-  _    _    _    _    _    @mwl fwd  ret  _    _    _    _
+  _    _    _    _    _    _    _    @mau mmid _    bck  @slw @fst _
+  _    @mau @sm  @mad @mar mlft @mwl @mwd @mwu @mwr mrgt _    _
+  _    _    _    _    _    @mal fwd  ret  _    _    _    _
   _    _    _              _              _    _    _
 )
 
