@@ -141,16 +141,6 @@
   mtf M-tab
   ;; mtb M-S-tab
   mtb M-b
-  a1 A-1
-  a2 A-2
-  a3 A-3
-  a4 A-4
-  a5 A-5
-  a6 A-6
-  a7 A-7
-  a8 A-8
-  a9 A-9
-  a0 A-0
   S' S-'
   { S-[
   } S-]
@@ -236,14 +226,6 @@
   _    _    _    @csr _    _    _    _    @csi _    _    _    _    _
   _    _    _    _    @csn _   left down up   rght _    _    ret
   _    _    _    @csc @csv @csp -   ret  pgup pgdn _    _
-  _    _    _              _              _    _    _
-)
-
-(deflayer alterations
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    @a7  @a8  @a9  _    _    _
-  _    _    _    _    _    _    @a3  @a4  @a5  @a6  @min _    ret
-  _    _    _    _    _    @a0  @a1  @a2  _    _    _    _
   _    _    _              _              _    _    _
 )
 
