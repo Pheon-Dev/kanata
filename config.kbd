@@ -39,8 +39,8 @@
 
   ;; tap for a, hold for b
   ;; c (tap-hold-release $ht $ht a b)
-  ;; cap (tap-hold-release $ht $ht esc lctl)
-  cap (tap-hold $tt $ht esc lalt)
+  cap (tap-hold-release $ht $ht esc lctl)
+  ;; cap (tap-hold $tt $ht esc lalt)
   spa (tap-hold $tt $ht spc lsft)
   ctl (tap-hold $tt $ht e lctl)
   cft (tap-hold $tt $ht esc lctl)
@@ -134,13 +134,16 @@
   me M-e
   mw M-w
   ms M-spc
-  mq M-=
-  mrt M-ret
+  mq M-q
+  mv M-m
+  mre M-ret
+  mrt (tap-hold $tt $ht @mre @mv)
   msp M-s
   mas M-S-s
   mtf M-tab
-  ;; mtb M-S-tab
-  mtb M-b
+  msb M-S-tab
+  mb M-b
+  mtb (tap-hold $tt $ht @msb @mb)
   S' S-'
   { S-[
   } S-]
@@ -162,11 +165,31 @@
   asf A-tab
   asb A-S-tab
   mp M-p
+  mg M-g
   del bspc
   dlc C-bspc
   min min
   mns S-min
   ral (tap-hold-release 200 200 sldr ralt)
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+  mau (movemouse-up 1 1)
+  mal (movemouse-left 1 1)
+  mad (movemouse-down 1 1)
+  mar (movemouse-right 1 1)
+  msu (movemouse-accel-up 1 1000 1 5)
+  msl (movemouse-accel-left 1 1000 1 5)
+  msd (movemouse-accel-down 1 1000 1 5)
+  msr (movemouse-accel-right 1 1000 1 5)
+  sm (setmouse 32228 32228)
+  fst (movemouse-speed 50)
+  slw (movemouse-speed 1)
+  ml (tap-hold $tt $ht M-l @mar)
+  mk (tap-hold $tt $ht M-k @mau)
+  mj (tap-hold $tt $ht M-j @mad)
+  mh (tap-hold $tt $ht M-h @mal)
 )
 
 (deflocalkeys-linux
@@ -177,8 +200,8 @@
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
   @cap @anm @spr @dir @fnd g    h    j    k    l    @cln '    ret
-  @cft z    x    @cmp @voo b    n    m    @sav .    /    rsft
-  lctl lmet lalt           @spa           ralt rmet rctl
+  XX   z    x    @cmp @voo b    n    m    @sav .    /    rsft
+  XX   lmet lalt           @spa           ralt rmet rctl
 )
 
 (deflayer layers
@@ -200,8 +223,8 @@
 (deflayer voom
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    @ms7 @ms8 @ms9  _    _    _
-  _    _    _    _    @asf _    @ms3 @ms4 @ms5 @ms6  _    _    ret
-  _    _    _    _    _    @asb @ms1 @ms2  _    _    _    _
+  _    _    _    _    _    _    @ms3 @ms4 @ms5 @ms6  _    _    ret
+  _    _    _    _    _    _    @ms1 @ms2  _    _    _    _
   _    _    _              _              _    _    _
 )
 
@@ -216,35 +239,17 @@
 (deflayer super
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @mq  @mw  @me  _    _    _    _    _    _    @mp  _    _    _
-  _    @mas _    @msp @mtf M-g  M-h  M-j  M-k  M-l  _    _    @mrt
-  _    _    _    _    M-m  @mtb @net @mrt M-,  M-.  _    _
+  _    @mas _    @msp @mtf @mg  @mh  @mj  @mk  @ml  _    _    @mrt
+  _    _    _    _    _    @mtb @net @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
 )
 
 (deflayer directions
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    @csr _    _    _    _    @csi _    _    _    _    _
-  _    _    _    _    @csn _   left down up   rght _    _    ret
-  _    _    _    @csc @csv @csp -   ret  pgup pgdn _    _
+  _    _    _    @csr _    _    _    _    @csi _    @asb _    _    _
+  _    _    _    _    @csn _    left down up   rght _    _    ret
+  _    _    _    @csc @csv @csp @asf ret  pgup pgdn _    _
   _    _    _              _              _    _    _
-)
-
-(defalias
-  mwu (mwheel-up 50 120)
-  mwd (mwheel-down 50 120)
-  mwl (mwheel-left 50 120)
-  mwr (mwheel-right 50 120)
-  mau (movemouse-up 1 1)
-  mal (movemouse-left 1 1)
-  mad (movemouse-down 1 1)
-  mar (movemouse-right 1 1)
-  msu (movemouse-accel-up 1 1000 1 5)
-  msl (movemouse-accel-left 1 1000 1 5)
-  msd (movemouse-accel-down 1 1000 1 5)
-  msr (movemouse-accel-right 1 1000 1 5)
-  sm (setmouse 32228 32228)
-  fst (movemouse-speed 50)
-  slw (movemouse-speed 1)
 )
 
 (deflayer warp
