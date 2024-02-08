@@ -90,7 +90,6 @@
   l30 (macro h t t p @: / / 100 l o c a l h o s t @: @3 @0 @0 @0)
   l31 (macro h t t p @: / / 100 l o c a l h o s t @: @3 @0 @0 @1)
   ls (macro l ret)
-  ;; con (cmd bash -c "pscale-conntect marvel-cloud dev")
   con (macro p s c a l e @- c o n n e c t spc m a r v e l @- c l o u d spc d e v ret)
   exp (macro p a s s @- e x p o r t ret)
   fzf (macro f spc min e ret)
@@ -101,6 +100,7 @@
   yd (macro y d ret)
   net (macro w w ret)
   btp (macro b t o p ret)
+  log C-A-l
   m1 M-1
   m2 M-2
   m3 M-3
@@ -239,7 +239,7 @@
 (deflayer super
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @mq  @mw  @me  _    _    _    _    _    _    @mp  _    _    _
-  _    @mas _    @msp @mtf @mg  @mh  @mj  @mk  @ml  _    _    @mrt
+  _    @mas _    @msp @mtf @mg  @mh  @mj  @mk  @ml  @log _    @mrt
   _    _    _    _    _    @mtb @net @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
 )
