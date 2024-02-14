@@ -39,7 +39,7 @@
 
   ;; tap for a, hold for b
   ;; c (tap-hold-release $ht $ht a b)
-  cap (tap-hold-release $ht $ht esc lctl)
+  cap (tap-hold-release $ht $ht esc lalt)
   ;; cap (tap-hold $tt $ht esc lalt)
   spa (tap-hold $tt $ht spc lsft)
   ctl (tap-hold $tt $ht e lctl)
@@ -202,7 +202,7 @@
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
   @cap @anm @spr @dir @fnd g    h    j    k    l    @cln '    ret
-  lalt z    x    @cmp @voo b    n    m    @sav .    /    rsft
+  lctl z    x    @cmp @voo b    n    m    @sav .    /    rsft
   XX   lmet lalt           @spa           ralt rmet rctl
 )
 
