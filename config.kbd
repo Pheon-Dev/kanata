@@ -97,6 +97,7 @@
   rg (macro f spc min g ret)
   lg (macro l g ret)
   br (macro b r ret)
+  vi (macro n e o v i d e ret)
   lf (macro l f ret)
   nv (macro v ret)
   yd (macro y d ret)
@@ -141,6 +142,8 @@
   mre M-ret
   mrt (tap-hold $tt $ht @mre @mv)
   msp M-s
+  mf M-f
+  mn M-n
   mas M-S-s
   mtf M-tab
   msb M-S-tab
@@ -218,7 +221,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    @br  _    @yd  _    @nv  _    _    _    _    _
   esc  _    @rg  _    @fzf @lg  _    _    _    C-l  _    @lf  ret
-  _    _    @exp @con _    @btp @net ret  _    _    _    _
+  _    _    @exp @con @vi  @btp @net ret  _    _    _    _
   _    _    _              _              _    _    _
 )
 
@@ -242,7 +245,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @mq  @mw  @me  _    _    _    _    _    _    @mp  _    _    _
   _    @mas _    @msp @mtf @mg  @mh  @mj  @mk  @ml  @log _    @mrt
-  _    _    _    _    _    @mtb @net @mrt M-,  M-.  _    _
+  _    @mf  _    _    _    @mtb @mn  @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
 )
 
