@@ -54,7 +54,7 @@
   ;; 3 taps: Escape
   ;; 4 taps: Escape
   ;; sav (tap-dance 200 (@cmm A-s esc esc))
-  sav (tap-dance 200 (, A-s A-s A-s A-s A-s))
+  sav (tap-dance 200 (, C-s C-s C-s C-s C-s))
   ;; jes (tap-dance 300 (j esc esc esc esc esc))
 
   0 0
@@ -133,18 +133,20 @@
   ms7 (tap-hold $tt $ht @m7 @s7)
   ms8 (tap-hold $tt $ht @m8 @s8)
   ms9 (tap-hold $tt $ht @m9 @s9)
-  ;; me M-S-min
-  me M-e
+  me M-S-min
+  ;; me M-e
   mw M-w
   ms M-spc
   mq M-q
   mv M-m
   mre M-ret
   mrt (tap-hold $tt $ht @mre @mv)
-  msp M-s
+  msp M-min
+  ;; msp M-s
   mf M-f
   mn M-n
-  mas M-S-s
+  ;; mas M-S-s
+  mas M-S-min
   mtf M-tab
   msb M-S-tab
   mb M-b
