@@ -24,6 +24,7 @@
   sup (layer-toggle super)
   lay (layer-toggle layers)
   war (layer-toggle warp)
+  tmx (layer-toggle tmux)
 
   ;; change the base layer
   qwr (layer-switch qwerty)
@@ -36,6 +37,7 @@
   dir (tap-hold-release $ht $ht d @drn)
   spr (tap-hold-release $ht $ht s @sup)
   wrp (tap-hold-release $ht $ht w @war)
+  pfx (tap-hold-release $ht $ht x @tmx)
 
   ;; tap for a, hold for b
   ;; c (tap-hold-release $ht $ht a b)
@@ -104,6 +106,15 @@
   net (macro w w ret)
   btp (macro b t o p ret)
   log C-A-l
+  a1 A-1
+  a2 A-2
+  a3 A-3
+  a4 A-4
+  a5 A-5
+  a6 A-6
+  a7 A-7
+  a8 A-8
+  a9 A-9
   m1 M-1
   m2 M-2
   m3 M-3
@@ -156,6 +167,8 @@
   } S-]
   [ [
   ] ]
+  ca C-a
+  tux (tap-hold $tt $ht t @ca)
   ce C-e
   cmp (tap-hold $tt $ht c @ce)
   csv C-S-v
@@ -205,9 +218,9 @@
 
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
+  tab  @que @wrp @ctl r    @tux y    u    i    o    p    [    ]    \
   @cap @anm @spr @dir @fnd g    h    j    k    l    @cln '    ret
-  lctl z    x    @cmp @voo b    n    m    @sav .    /    rsft
+  lctl z    @pfx @cmp @voo b    n    m    @sav .    /    rsft
   esc  lmet lalt           @spa           ralt rmet rctl
 )
 
@@ -237,9 +250,17 @@
 
 (deflayer numbers
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    @del @7s  @8s  @9s  _    _    _
-  esc  _    @del @dlc _    _    @3s  @4s  @5s  @6s  @min =    ret
-  _    _    _    _    _    @0s  @1s  @2s  @mns +    /    _
+  _    _    _    _    _    _    _    _    @7s  @8s  @9s  _    _    _
+  esc  _    @del @dlc _    _    @3s  @4s  @5s  @6s  @mns =    ret
+  _    _    _    _    _    @0s  @1s  @2s  @min +    /    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer tmux
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    @a7  @a8  @a9  _    _    _
+  esc  _    _    _    _    _    @a3  @a4  @a5  @a6  _    _    ret
+  _    _    _    _    _    _    @a1  @a2  _    _    _    _
   _    _    _              _              _    _    _
 )
 
