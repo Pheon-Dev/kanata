@@ -56,7 +56,7 @@
   ;; 3 taps: Escape
   ;; 4 taps: Escape
   ;; sav (tap-dance 200 (@cmm A-s esc esc))
-  sav (tap-dance 200 (, C-s C-s C-s C-s C-s))
+  sav (tap-dance 200 (, C-, C-, C-, C-, C-,))
   ;; jes (tap-dance 300 (j esc esc esc esc esc))
 
   0 0
