@@ -221,7 +221,7 @@
   tab  @que @wrp @ctl r    @tux y    u    i    o    p    [    ]    \
   @cap @anm @spr @dir @fnd g    h    j    k    l    @cln '    ret
   lctl z    @pfx @cmp @voo b    n    m    @sav .    /    rsft
-  esc  lmet lalt           @spa           ralt rmet rctl
+  esc  lmet XX             @spa           ralt rmet rctl
 )
 
 (deflayer layers
