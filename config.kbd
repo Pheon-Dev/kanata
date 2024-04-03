@@ -20,6 +20,7 @@
   num (layer-toggle numbers)
   vom (layer-toggle voom)
   qck (layer-toggle quick)
+  ctr (layer-toggle control)
   drn (layer-toggle directions)
   sup (layer-toggle super)
   lay (layer-toggle layers)
@@ -34,6 +35,7 @@
   anm (tap-hold-release $ht $ht a @num)
   voo (tap-hold-release $ht $ht v @vom)
   que (tap-hold-release $ht $ht q @qck)
+  crl (tap-hold-release $ht $ht c @ctr)
   dir (tap-hold-release $ht $ht d @drn)
   spr (tap-hold-release $ht $ht s @sup)
   wrp (tap-hold-release $ht $ht w @war)
@@ -43,21 +45,16 @@
   ;; c (tap-hold-release $ht $ht a b)
   cap (tap-hold-release $ht $ht esc lalt)
   ;; cap (tap-hold $tt $ht esc lalt)
-  spa (tap-hold $tt $ht spc lsft)
+  spa (tap-hold-release $tt $ht spc lsft)
   ctl (tap-hold $tt $ht e lctl)
   cft (tap-hold $tt $ht esc lctl)
   cln (tap-hold $tt $ht ; S-;)
   fnd (tap-hold $tt $ht f /)
-  ;; cmm (tap-hold $tt $ht , A-s)
-  ;; sav (tap-hold $tt $ht , A-s)
 
-  ;; 1 tap : "," key
-  ;; 2 taps: A-s
-  ;; 3 taps: Escape
-  ;; 4 taps: Escape
-  ;; sav (tap-dance 200 (@cmm A-s esc esc))
-  sav (tap-dance 200 (, C-s C-s C-s C-s C-s))
-  ;; jes (tap-dance 300 (j esc esc esc esc esc))
+  cs C-s
+  sav (tap-dance 200 (, @cs @cs @cs @cs @cs))
+  ce C-e
+  cmp (tap-hold-release $tt $ht c @ce)
 
   0 0
   1 1
@@ -167,10 +164,6 @@
   } S-]
   [ [
   ] ]
-  ca C-a
-  tux (tap-hold $tt $ht t @ca)
-  ce C-e
-  cmp (tap-hold $tt $ht c @ce)
   csv C-S-v
   csc C-S-c
   csi C-S-i
@@ -218,9 +211,9 @@
 
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  @que @wrp @ctl r    @tux y    u    i    o    p    [    ]    \
+  tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
   @cap @anm @spr @dir @fnd g    h    j    k    l    @cln '    ret
-  lctl z    @pfx @cmp @voo b    n    m    @sav .    /    rsft
+  lctl z    @pfx @crl @voo b    n    m    @sav .    /    rsft
   esc  lmet XX             @spa           ralt rmet rctl
 )
 
@@ -235,8 +228,16 @@
 (deflayer quick
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    @br  _    @yd  _    @nv  _    _    _    _    _
-  esc  _    @rg  _    @fzf @lg  _    _    _    C-l  _    @lf  ret
+  esc  _    @rg  _    @fzf @lg  _    _    _    _    _    @lf  ret
   _    _    @exp @con @vi  @btp @net ret  _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer control
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    C-e  _    _    _    C-u  C-i  C-o  C-p  _    _    _
+  esc  _    C-s  C-d  _    _    C-h  C-j  C-k  C-l  _    _    ret
+  _    _    _    _    C-b  C-n  _    ret  _    _    _    _
   _    _    _              _              _    _    _
 )
 
