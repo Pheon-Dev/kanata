@@ -96,7 +96,7 @@
   rg (macro f spc min g ret)
   lg (macro l g ret)
   br (macro b r ret)
-  vi (macro n e o v i d e ret)
+  vi (macro n v i m ret)
   lf (macro l f ret)
   nv (macro v ret)
   yd (macro y d ret)
