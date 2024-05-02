@@ -161,7 +161,7 @@
   mtf M-tab
   msb M-S-tab
   mb M-b
-  mtb (tap-hold $tt $ht @msb @mb)
+  mtb (tap-hold $tt $ht @msb @mw)
   S' S-'
   { S-[
   } S-]
@@ -272,7 +272,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @mq  _    @me  _    _    _    _    _    _    @mp  _    _    _
   _    @mas _    @msp @mtf @mg  @mh  @mj  @mk  @ml  @log _    @mrt
-  _    @mf  _    @mtb _    @mw  @mn  @mrt M-,  M-.  _    _
+  _    @mf  _    @mb  _    @mtb @mn  @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
 )
 
