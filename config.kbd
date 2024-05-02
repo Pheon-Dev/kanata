@@ -215,7 +215,7 @@
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
-  @cap @anm @spr @dir @fnd g    h    @jj  k    l    @cln '    ret
+  @cap @anm @spr @dir @fnd g    h    j    k    l    @cln '    ret
   lctl z    @pfx @crl @voo b    n    m    @sav .    /    rsft
   esc  lmet XX             @spa           ralt rmet rctl
 )
@@ -270,9 +270,9 @@
 
 (deflayer super
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @mq  @mw  @me  _    _    _    _    _    _    @mp  _    _    _
+  _    @mq  _    @me  _    _    _    _    _    _    @mp  _    _    _
   _    @mas _    @msp @mtf @mg  @mh  @mj  @mk  @ml  @log _    @mrt
-  _    @mf  _    @mw  _    @mtb @mn  @mrt M-,  M-.  _    _
+  _    @mf  _    @mtb _    @mw  @mn  @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
 )
 
