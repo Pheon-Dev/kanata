@@ -29,6 +29,8 @@
 
   ;; change the base layer
   qwr (layer-switch qwerty)
+  dvk (layer-switch dvorak)
+  clk (layer-switch colemak)
 
   ;; tap-hold keys with letters for tap and layer change for hold
   grl (tap-hold-release $ht $ht grv @lay)
@@ -212,6 +214,22 @@
   pho 445
 )
 
+(deflayer colemak
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
+  @cap a    r    s    t    d    h    b    e    i    o    '    ret
+  lsft z    x    c    v    b    k    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer dvorak
+  @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
+  tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
+  @cap a    o    e    u    i    d    h    t    n    s    -    ret
+  lsft ;    q    j    k    x    b    m    w    v    z    rsft
+  lctl lmet lalt           spc            @ral rmet rctl
+)
+
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
@@ -221,7 +239,7 @@
 )
 
 (deflayer layers
-  _    @qwr lrld _    _    _    _    _    _    _    _    _    _    _
+  _    @qwr lrld @clk _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    lrpv lrnx _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
