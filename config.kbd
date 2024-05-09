@@ -216,9 +216,9 @@
 
 (deflayer colemak
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
-  @cap a    r    s    t    d    h    b    e    i    o    '    ret
-  lsft z    x    c    v    b    k    m    ,    .    /    rsft
+  tab  @que @wrp @fnd p    g    j    l    u    y    ;    [    ]    \
+  @cap @anm r    @spr t    d    h    n    e    i    o    '    ret
+  lsft z    @pfx @crl @voo b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
@@ -234,7 +234,7 @@
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
   @cap @anm @spr @dir @fnd g    h    j    k    l    @cln '    ret
-  lctl z    @pfx @crl @voo b    n    m    @sav .    /    rsft
+  lctl z    @pfx @crl @voo b    n    m    ,    .    /    rsft
   esc  lmet XX             @spa           ralt rmet rctl
 )
 
@@ -279,7 +279,7 @@
 )
 
 (deflayer tmux
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    @a7  @a8  @a9  _    _    _
   esc  _    _    _    _    _    @a3  @a4  @a5  @a6  _    _    ret
   _    _    _    _    _    _    @a1  @a2  _    _    _    _
