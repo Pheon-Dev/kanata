@@ -239,7 +239,7 @@
 )
 
 (deflayer layers
-  _    @qwr lrld @clk _    _    _    _    _    _    _    _    _    _
+  _    @qwr lrld _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    lrpv lrnx _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
