@@ -276,7 +276,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    @7s  @8s  @9s  _    _    _
   esc  _    @del @dlc @[   @]   @3s  @4s  @5s  @6s  @mns =    ret
-  _    _    _    @crg @edi @0s  @1s  @2s  @min +    /    _
+  _    _    C-l  @crg @edi @0s  @1s  @2s  @min +    /    _
   _    _    _              _              _    _    _
 )
 
