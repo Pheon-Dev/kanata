@@ -102,6 +102,8 @@
   lg (macro l g ret)
   br (macro b r ret)
   vi (macro n v i m ret)
+  edi (macro n v ret)
+  crg (macro z spc c a r g o ret)
   lf (macro l f ret)
   nv (macro v ret)
   yd (macro y d ret)
@@ -214,6 +216,14 @@
   pho 445
 )
 
+(deflayer qwerty
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
+  @cap @anm @spr @dir @fnd g    h    j    k    l    @cln '    ret
+  lctl z    @pfx @crl @voo b    n    m    ,    .    /    rsft
+  esc  lmet XX             @spa           ralt rmet rctl
+)
+
 (deflayer colemak
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  @que @wrp @fnd p    g    j    l    u    y    ;    [    ]    \
@@ -230,19 +240,11 @@
   lctl lmet lalt           spc            @ral rmet rctl
 )
 
-(deflayer qwerty
-  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  @que @wrp @ctl r    t    y    u    i    o    p    [    ]    \
-  @cap @anm @spr @dir @fnd g    h    j    k    l    @cln '    ret
-  lctl z    @pfx @crl @voo b    n    m    ,    .    /    rsft
-  esc  lmet XX             @spa           ralt rmet rctl
-)
-
 (deflayer layers
-  _    @qwr lrld _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    lrpv lrnx _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
+  _    lrld lrld _    _    _    _    _    _    _    _    _    _    _
+  _    @qwr _    _    _    _    _    _    _    _    _    lrpv lrnx _
+  _    _    _    @dvk _    _    _    _    _    _    _    _    _
+  _    _    _    @clk _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _
 )
 
@@ -274,7 +276,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    @7s  @8s  @9s  _    _    _
   esc  _    @del @dlc @[   @]   @3s  @4s  @5s  @6s  @mns =    ret
-  _    _    _    _    _    @0s  @1s  @2s  @min +    /    _
+  _    _    _    @crg @edi @0s  @1s  @2s  @min +    /    _
   _    _    _              _              _    _    _
 )
 
@@ -290,7 +292,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @mq  _    @me  _    _    _    _    _    _    @mp  _    _    _
   _    @mas _    @msp @mtf @mg  @mh  @mj  @mk  @ml  @log _    @mrt
-  _    @mf  _    @mb  _    @mtb @mn  @mrt M-,  M-.  _    _
+  _    @mf  _    @mb  @edi @mtb @mn  @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
 )
 
