@@ -148,16 +148,22 @@
   ms7 (tap-hold $tt $ht @m7 @s7)
   ms8 (tap-hold $tt $ht @m8 @s8)
   ms9 (tap-hold $tt $ht @m9 @s9)
-  me M-S-min
-  ;; me M-e
+  frp M-S-r
+  fu M-u
+  fur M-S-u
+  fup (tap-hold $tt $ht @fu @fur)
+  fy M-y
+  fyr M-S-y
+  fyp (tap-hold $tt $ht @fy @fyr)
+  ft M-t
+  ftr M-S-t
+  ftp (tap-hold $tt $ht @ft @ftr)
   mw M-w
   ms M-spc
   mq M-q
   mv M-m
   mre M-ret
   mrt (tap-hold $tt $ht @mre @mv)
-  msp M-min
-  ;; msp M-s
   mf M-f
   mn M-n
   ;; mas M-S-s
@@ -290,9 +296,9 @@
 
 (deflayer super
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @mq  _    @me  _    _    _    _    _    _    @mp  _    _    _
-  _    @mas _    @msp @mtf @mg  @mh  @mj  @mk  @ml  @log _    @mrt
-  _    @mf  _    @mb  @edi @mtb @mn  @mrt M-,  M-.  _    _
+  _    @mq  _    @fyp @frp _    _    _    _    _    @mp  _    _    _
+  _    M-a  _    @fup @mtf @mg  @mh  @mj  @mk  @ml  @log _    @mrt
+  _    @mf  _    @ftp @edi @mtb @mn  @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
 )
 
