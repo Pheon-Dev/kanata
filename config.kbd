@@ -158,13 +158,16 @@
   ft M-t
   ftr M-S-t
   ftp (tap-hold $tt $ht @ft @ftr)
-  mw M-w
+  mw M-S-w
   ms M-spc
   mq M-q
   mv M-m
+  wez M-w
   mre M-ret
   mrt (tap-hold $tt $ht @mre @mv)
   mf M-f
+  ;; ma M-a
+  ma M-w
   mn M-n
   ;; mas M-S-s
   mas M-S-min
@@ -296,8 +299,8 @@
 
 (deflayer super
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @mq  _    @fyp @frp _    _    _    _    _    @mp  _    _    _
-  _    M-a  _    @fup @mtf @mg  @mh  @mj  @mk  @ml  @log _    @mrt
+  _    @mq  @wez @fyp @frp _    _    _    _    _    @mp  _    _    _
+  _    @ma  _    @fup @mtf @mg  @mh  @mj  @mk  @ml  @log _    @mrt
   _    @mf  _    @ftp @edi @mtb @mn  @mrt M-,  M-.  _    _
   _    _    _              @ms            _    _    _
 )
