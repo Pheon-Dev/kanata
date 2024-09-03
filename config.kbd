@@ -44,7 +44,7 @@
   pfx (tap-hold-release $ht $ht x @tmx)
 
   clr (macro S-; n o h ret)
-  sv (macro S-; w S-1 ret)
+  sv (macro S-; w S-1 spc S-\ spc n o h ret)
   ;; tap for a, hold for b
   ;; c (tap-hold-release $ht $ht a b)
   cap (tap-hold-release $ht $ht esc lalt)
@@ -215,10 +215,14 @@
   sm (setmouse 32228 32228)
   fst (movemouse-speed 50)
   slw (movemouse-speed 1)
-  ml (tap-hold $tt $ht M-l @mar)
-  mk (tap-hold $tt $ht M-k @mau)
-  mj (tap-hold $tt $ht M-j @mad)
-  mh (tap-hold $tt $ht M-h @mal)
+  mvj M-S-j
+  mvk M-S-k
+  mvh M-h
+  mvl M-l
+  ml (tap-hold $tt $ht M-l @mvl)
+  mk (tap-hold $tt $ht M-k @mvk)
+  mj (tap-hold $tt $ht M-j @mvj)
+  mh (tap-hold $tt $ht M-h @mvh)
 )
 
 (deflocalkeys-linux
